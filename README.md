@@ -2,14 +2,22 @@
 
 <a href="https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743"><img src="https://www.packtpub.com/sites/default/files/B09076_MockupCover_New.png?utm_source=github&utm_medium=repository&utm_campaign=9781788626743" alt="Mastering SVG" height="256px" align="right"></a>
 
-This is the code repository for [](https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=), published by Packt.
+This is the code repository for [Mastering SVG](https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743), published by Packt.
 
-**Ace web animations, visualizations, and vector graphics with HTML, CSS, and JavaScript	**
+**Ace web animations, visualizations, and vector graphics with HTML, CSS, and JavaScript **
 
 ## What is this book about?
-0
+SVG is the most powerful image format in use on the web. In addition to producing resolution-independent images for today's multi-device world, SVG allows you to create animations and visualizations to add to your sites and applications. The simplicity of cross-platform markup, mixed with familiar modern web languages, such as CSS and JavaScript, creates a winning combination for designers and developers alike.
+In this book, you will learn how to author an SVG document using common SVG features, such as elements and attributes, and serve SVG on the web using simple configuration tips for common web servers. You will also use SVG elements and images in HTML documents.
+Further, you will use SVG images for a variety of common tasks, such as manipulating SVG elements, adding animations using CSS, mastering the basic JavaScript SVG (API) using Document Object Model (DOM) methods, and interfacing SVG with common libraries and frameworks, such as React, jQuery, and Angular.
+You will then build an understanding of the Snap.svg and SVG.js APIs, along with the basics of D3, and take a look at how to implement interesting visualizations using the library. By the end of the book, you will have mastered creating animations with SVG.
 
 This book covers the following exciting features:
+* Deliver the elements that make up an SVG image 
+* Replace your old CSS sprites with SVG
+* Understand animation and data visualization with SVG are explained in pure JavaScript and using common libraries
+* Use SVG to scale images across multiple devices easily 
+* Harness the power of CSS animations and transformations to manipulate your SVG images in a replicable, remixable way
 
 
 
@@ -60,18 +68,6 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 **Rob Larsen**
 is an experienced frontend engineer, team lead, and manager. He is an active writer and speaker on web technology with a special focus on the continuing evolution of HTML, CSS, and JavaScript. 
 He is a co-author of Professional jQuery, the author of Beginning HTML and CSS, and the author of The Uncertain Web. He's also an active member of the open source community as a maintainer of several popular projects.
-
-****
-0
-
-****
-0
-
-****
-0
-
-****
-0
 
 
 ### Suggestions and Feedback
