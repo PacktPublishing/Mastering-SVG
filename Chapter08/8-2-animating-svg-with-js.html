@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- SVG Data Visualization</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" width="1000" height="450" version="1.1" id="canvas" class="canvas">
+          <circle cx="75" cy="225" r="50" fill="blue" id="circle"></circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const doc = document;
+      const canvas = doc.getElementById("canvas");
+      const circle = doc.getElementById('circle');
+      const viewBox = canvas.viewBox.baseVal;
+      const width = viewBox.width;
+      const height = viewBox.height;
+      const x = viewBox.x;
+      const padding = width / 200;
+      const seconds = 3;
+      const fps = 60;
+      let currX = circle.cx.baseVal.value;
+      let newX = width - (circle.r.baseVal.value * 3);
+      let diffX = newX - currX;
+      let intervalX = diffX / (fps * seconds);
+      let animX = currX;
+      function animate() {
+
+        if (animX < newX) {
+          animX = animX + intervalX;
+          circle.setAttribute("cx", animX)
+          window.requestAnimationFrame(animate);
+        }
+      }
+      animate()
+    });
+  </script>
+
+</body>
+
+</html>

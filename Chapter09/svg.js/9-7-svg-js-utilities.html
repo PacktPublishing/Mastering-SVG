@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- Snap.svg utilities</title>
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12" id="canvas">
+      
+      </div>
+    </div>
+  </div>
+
+
+  <script src="node_modules/svg.js/dist/svg.min.js"></script>
+  <script>
+    const draw = SVG('canvas').size(800,600)
+    console.log("view box:",draw.viewbox())
+    const rect = draw.rect(100,100).attr({"x":100,"y":100});
+    console.log("bounding box:", rect.bbox());
+    rect.transform({ rotation: 125 });
+    console.log("rbox:",rect.rbox());
+    rect.data({"data":"storing arbitrary data"});
+    console.log("data method:", rect.data("data"))
+
+    const first = draw.rect(50,50).attr({"x":200,"y":200, "fill":
+    "green"});
+    const second = draw.rect(50,50).attr({"x":225,"y":225, "fill":
+    "blue"});
+    setTimeout(()=>{
+      second.back();
+    },2000)
+    console.log("merged bounding box", first.bbox().merge(second.bbox()))
+
+  </script>
+</body>
+
+</html>

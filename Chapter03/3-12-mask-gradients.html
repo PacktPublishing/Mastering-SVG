@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- Illustrating the gradients used in a mask</title>
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" width="500" height="240" viewBox="0 0  500 240" version="1.1">
+      <linearGradient id="gradient">
+        <stop offset="0" stop-color="black" stop-opacity="1" />
+        <stop offset=".25" stop-color="black" stop-opacity="1" />
+        <stop offset=".5" stop-color="white" stop-opacity="1" />
+        <stop offset=".75" stop-color="black" stop-opacity="1" />
+        <stop offset="1" stop-color="black" stop-opacity="1" />
+      </linearGradient>
+      <radialGradient id="highlight-gradient">
+        <stop offset=".25" stop-color="black" stop-opacity="1" />
+        <stop offset=".75" stop-color="white" stop-opacity="1" />
+      </radialGradient>
+      <rect y="0" x="0" width="500" height="120" fill="url(#gradient)"></rect>
+      <rect y="120" x="0" width="500" height="120" fill="url(#highlight-gradient)"></rect>
+  </svg>
+</body>
+
+</html>

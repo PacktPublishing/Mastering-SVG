@@ -1,0 +1,17 @@
+{
+  "name": "d3-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^5.5.0"
+  },
+  "devDependencies": {
+    "d3-fetch": "^1.1.0"
+  }
+}

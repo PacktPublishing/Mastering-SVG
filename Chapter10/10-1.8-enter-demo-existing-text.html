@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- D3 Enter with exiting content</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12" id="target">
+        <p>This is an existing paragraph</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="node_modules/d3/dist/d3.min.js"></script>
+  <script src="node_modules/d3-fetch/dist/d3-fetch.min.js"></script>
+  <script>
+    function enter() {
+      const data = ["a", "b", "c", "d", "e"];
+      d3.select("#target")
+        .selectAll("p")
+        .data(data)
+        .text((d) => d)
+        .enter()
+        .append("p")
+        .text((d) => d);
+    }
+    enter();
+
+  </script>
+</body>
+
+</html>

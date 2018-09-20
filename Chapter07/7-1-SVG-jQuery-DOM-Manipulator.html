@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- SVG Basic The DOM Manipulator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <style type="text/css">
+    body {
+      font-family: Raleway, sans-serif;
+    }
+
+    svg.canvas {
+      border: 1px solid black;
+    }
+
+    svg.canvas.active {
+      border: 4px solid black;
+      cursor: crosshair;
+    }
+
+    svg.canvas.active.square {
+      cursor: url(square.png), crosshair;
+    }
+
+    svg.canvas.active.circle {
+      cursor: url(circle.png) 32 32, crosshair;
+    }
+
+    svg.canvas.active.text {
+      cursor: url(text.png), crosshair;
+    }
+
+    svg.canvas text,
+    svg.canvas rect,
+    svg.canvas circle {
+      cursor: pointer;
+    }
+
+    button svg {
+      fill: cornflowerblue;
+      stroke: cornflowerblue;
+      max-width: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="controls container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" version="1.1" id="canvas" class="canvas">
+        </svg>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5 offset-2">
+        <h2>Pick an SVG element to add to the canvas. </h2>
+        <p>Click on an item to select it and then click on the canvas to place it in the SVG element.</p>
+      </div>
+    </div>
+    <div class="row controls">
+      <div class="col-4 text-center">
+        <button class="btn btn-link" title="click to add a circle">
+          <svg xmlns="http://www.w3.org/2000/svg" role="img">
+            <use xlink:href="#circle" data-type="circle"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="col-4 text-center" title="click to add a square">
+        <button class="btn btn-link">
+
+          <svg xmlns="http://www.w3.org/2000/svg" role="img">
+            <use xlink:href="#square" data-type="square"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="col-4 text-center">
+        <button class="btn btn-link" title="click to add a text box">
+          <svg xmlns="http://www.w3.org/2000/svg" role="img">
+            <use xlink:href="#text" data-type="text"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <defs>
+      <symbol id="circle" viewBox="0 0 512 512">
+        <circle cx="256" cy="256" r="256"></circle>
+      </symbol>
+      <symbol id="square" viewBox="0 0 512 512">
+        <rect x="6" y="6" height="500" width="500"></rect>
+      </symbol>
+      <symbol id="text" viewBox="0 0 512 512">
+        <rect x="6" y="106" height="300" width="500" fill="none" stroke-width="10px"></rect>
+        <text x="50" y="325" font-size="150">TEXT</text>
+      </symbol>
+      <!--
+      Font Awesome Free 5.0.2 by @fontawesome - http://fontawesome.com
+      License - http://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+      -->
+      <symbol id="edit" viewBox="0 0 576 512">
+        <title id="edit-title">Edit</title>
+        <path d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"></path>
+      </symbol>
+    </defs>
+  </svg>
+  <div class="modal" tabindex="-1" role="dialog" id="rect-edit-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit your element</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-4">
+              <label>Background color:</label>
+            </div>
+            <div class="col-8">
+              <input type="color" id="rect-color">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <label>x:</label>
+            </div>
+            <div class="col-4">
+              <input type="number" id="rect-x" class="form-control">
+            </div>
+            <div class="col-2">
+              <label>y:</label>
+            </div>
+            <div class="col-4">
+              <input type="number" id="rect-y" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <label>width:</label>
+            </div>
+            <div class="col-4">
+              <input type="number" id="rect-width" class="form-control">
+            </div>
+            <div class="col-2">
+              <label>height:</label>
+            </div>
+            <div class="col-4">
+              <input type="number" id="rect-height" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="rect-save">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" role="dialog" id="circle-edit-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit your element</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-4">
+              <label>Background color:</label>
+            </div>
+            <div class="col-8">
+              <input type="color" id="circle-color">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <label>cx:</label>
+            </div>
+            <div class="col-4">
+              <input type="number" id="circle-cx" class="form-control">
+            </div>
+            <div class="col-2">
+              <label>cy:</label>
+            </div>
+            <div class="col-4">
+              <input type="number" id="circle-cy" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <label>radius:</label>
+            </div>
+            <div class="col-4">
+              <input type="number" id="circle-radius" class="form-control">
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="circle-save">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" role="dialog" id="text-edit-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit your element</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-4">
+              <label>Color:</label>
+            </div>
+            <div class="col-8">
+              <input type="color" id="text-color">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <label>cx:</label>
+            </div>
+            <div class="col-4">
+              <input type="number" id="text-x" class="form-control">
+            </div>
+            <div class="col-2">
+              <label>cy:</label>
+            </div>
+            <div class="col-4">
+              <input type="number" id="text-y" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <label>content:</label>
+            </div>
+            <div class="col-10">
+              <input type="text" id="text-text" class="form-control">
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="text-save">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
+    /*
+    ES5
+    */
+    $().ready(init);
+
+    function edit($event) {
+      var $elem = $($event.target)
+      console.log($elem)
+      if ($elem.prop("nodeName") === "rect") {
+        $("#rect-edit-modal").modal("show").data("current-element", $elem);
+
+        $("#rect-color").val($elem.attr("fill"));
+        $("#rect-x").val($elem.attr("x"));
+        $("#rect-y").val($elem.attr("y"));
+        $("#rect-width").val($elem.attr("width"));
+        $("#rect-height").val($elem.attr("height"));
+      }
+      else if ($elem.prop("nodeName") === "circle") {
+        $("#circle-edit-modal").modal("show").data("current-element", $elem);
+        $("#circle-color").val($elem.attr("fill"));
+        $("#circle-cx").val($elem.attr("cx"));
+        $("#circle-cy").val($elem.attr("cy"));
+        $("#circle-radius").val($elem.attr("r"));
+      }
+      else if ($elem.prop("nodeName") === "text") {
+        $("#text-edit-modal").modal("show").data("current-element", $elem);
+        $("#text-color").val($elem.attr("fill"));
+        $("#text-x").val($elem.attr("x"));
+        $("#text-y").val($elem.attr("y"));
+        $("#text-text").val($elem.text());
+      }
+    }
+    function rectSave() {
+      $("#rect-edit-modal").modal("hide");
+      var $elem = $("#rect-edit-modal").data("current-element")
+      console.log($elem);
+      $elem.attr({
+        "fill": $("#rect-color").val(),
+        "x": $("#rect-x").val(),
+        "y": $("#rect-y").val(),
+        "height": $("#rect-height").val(),
+        "width": $("#rect-width").val()
+      });
+    }
+    function circleSave() {
+      $("#circle-edit-modal").modal("hide");
+      var $elem = $("#circle-edit-modal").data("current-element")
+      console.log($elem);
+      $elem.attr({
+        "fill": $("#circle-color").val(),
+        "cx": $("#circle-cx").val(),
+        "cy": $("#circle-cy").val(),
+        "r": $("#circle-radius").val()      
+      });
+    }
+    function textSave() {
+      $("#text-edit-modal").modal("hide");
+      var $elem = $("#text-edit-modal").data("current-element")
+      $elem.attr({        
+"fill": $("#text-color").val(), "x": $("#text-x").val(),
+        "y": $("#text-y").val()
+      });
+      $elem.text($("#text-text").val());
+    }
+    function add($event) {
+      var $canvas = $("#canvas");
+      var elem;
+      var doc = document;
+      var NS = canvas.getAttribute('xmlns');
+      var point = canvas.createSVGPoint()
+      var $elem;
+      point.x = $event.offsetX;
+      point.y = $event.offsetY;
+      var svgCoords = point.matrixTransform(canvas.getScreenCTM().inverse());
+      if ($canvas.hasClass("active")) {
+        if ($canvas.hasClass("square")) {
+          elem = doc.createElementNS(NS, "rect");
+          $elem = $(elem).attr({
+            "x": svgCoords.x,
+            "y": svgCoords.y,
+            "width": 50,
+            "height": 50
+          });
+
+        } else if ($canvas.hasClass("circle")) {
+          elem = doc.createElementNS(NS, "circle");
+
+          $elem = $(elem).attr({
+            "cx": svgCoords.x,
+            "cy": svgCoords.y,
+            "r": 10
+          });
+        } else if ($canvas.hasClass("text")) {
+          elem = doc.createElementNS(NS, "text");
+          $elem = $(elem).attr({
+            "x": svgCoords.x,
+            "y": svgCoords.y,
+            "width": 50,
+            "height": 50
+          });
+          $elem.text("TEXT")
+
+        }
+        $elem.attr("fill", "#ff8000");
+        $canvas.append($elem);
+        $canvas.removeClass("active");
+        $elem.on("click", edit);
+      }
+    }
+    function loadCursor($event){
+      var $canvas = $("#canvas");
+      var type = $($event.target).data("type");
+      if ($canvas.hasClass("active") && $canvas.hasClass(type)) {
+        $canvas.removeClass("active " + type);
+      }
+      else if ($canvas.hasClass("active")) {
+        $canvas.removeClass("circle text square");
+        $canvas.addClass(type);
+      } else {
+        $canvas.removeClass("circle text square");
+        $canvas.addClass("active " + type);
+      }
+    }
+    function init() {
+      $(".controls .btn").on("click", loadCursor);      
+      $("#rect-save").on("click", rectSave);
+      $("#circle-save").on("click", circleSave);
+      $("#text-save").on("click", textSave);
+      $("#canvas").on("click", add);
+    }
+
+  </script>
+
+</body>
+
+</html>

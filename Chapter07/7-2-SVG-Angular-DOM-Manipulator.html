@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link data-require="bootstrap-css@*" data-semver="4.0.0-alpha.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
+  />
+  <style type="text/css">
+    body {
+      font-family: Raleway, sans-serif;
+    }
+
+    svg.canvas {
+      border: 1px solid black;
+    }
+
+    svg.canvas.active {
+      border: 4px solid black;
+      cursor: crosshair;
+    }
+
+    svg.canvas.active.square {
+      cursor: url(square.png), crosshair;
+    }
+
+    svg.canvas.active.circle {
+      cursor: url(circle.png) 32 32, crosshair;
+    }
+
+    svg.canvas.active.text {
+      cursor: url(text.png), crosshair;
+    }
+
+    svg.canvas text,
+    svg.canvas rect,
+    svg.canvas circle {
+      cursor: pointer;
+    }
+
+    button svg {
+      fill: cornflowerblue;
+      stroke: cornflowerblue;
+      max-width: 50px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="angularSVG">
+  <div ng-controller="circleController" class="container">
+    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150" version="1.1">
+      <circle
+      ng-attr-fill="{{fill}}" 
+      ng-attr-cx="{{cx}}" 
+      ng-attr-cy="{{cy}}" 
+      ng-attr-r="{{r}}" />
+      <angular-rect></angular-rect>
+    </svg>
+    <div class="row">
+      <div class="col-4">
+        <label>Background color:</label>
+      </div>
+      <div class="col-8">
+        <input type="color" ng-model="fill" id="circle-color">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <label>cx:</label>
+      </div>
+      <div class="col-4">
+        <input type="number" ng-model="cx" id="circle-cx" class="form-control">
+      </div>
+      <div class="col-2">
+        <label>cy:</label>
+      </div>
+      <div class="col-4">
+        <input type="number" ng-model="cy" id="circle-cy" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <label>radius:</label>
+      </div>
+      <div class="col-4">
+        <input type="number" ng-model="r" id="circle-radius" class="form-control">
+      </div>
+    </div>
+  </div>
+  <script>
+    angular.module('angularSVG', [])
+      .controller('circleController', function ($scope) {
+        $scope.cx = 75;
+        $scope.cy = 75;
+        $scope.r = 50;
+        $scope.fill = "#ff0000";
+      }).directive('angularRect', function() {
+        return {
+            restrict: 'E',
+            templateNamespace: 'svg',
+            template: '<rect x="125" y="125" width="10" height="10" stroke="blue" fill="none"></rect>',
+            replace: true
+        };
+});;
+  </script>
+</body>
+</html>

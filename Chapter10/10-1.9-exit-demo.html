@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- D3 Exit</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12" id="target">
+
+      </div>
+    </div>
+  </div>
+  <script src="node_modules/d3/dist/d3.min.js"></script>
+  <script>
+      const data = ["a", "b", "c", "d", "e"];
+      function render(){
+        d3.select("#target")
+          .selectAll("p")
+          .data(data)
+          .enter()
+          .append("p")
+          .text((d) => d );
+        d3.select("#target")
+          .selectAll("p")
+          .data(data)
+          .exit()
+          .remove();
+        if (data.length) {
+          setTimeout(()=>{
+            data.pop();
+            render();
+          }
+          ,1000);
+        }
+      }
+    render();
+  </script>
+</body>
+
+</html>

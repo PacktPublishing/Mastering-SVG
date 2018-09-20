@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- SVG Animation with Snap.svg</title>
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12" id="canvas">
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="node_modules/svg.js/dist/svg.min.js"></script>
+  <script src="node_modules/svg.easing.js/dist/svg.easing.min.js"></script>
+  <script>
+    const width = 1000;
+    const height = 450;
+    const radius = 50;
+    const cx = 75;
+    const cy = 225;
+    const draw = SVG('canvas').size(width,height)
+    const circle = draw.circle(radius * 2).attr({"fill":"blue","cx":cx,"cy":cy});
+    const newX = width - (radius * 3);
+    circle.animate(3000, SVG.easing.bounce,1000)
+      .center(newX,cy)
+      .after(function(situation) {
+        this.attr({ 
+          "fill": 'red' 
+        })
+      })
+    
+  </script>
+</body>
+
+</html>

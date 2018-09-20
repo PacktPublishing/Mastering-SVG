@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- Basic Snap.svg demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12" id="target">
+      
+      </div>
+    </div>
+  </div>
+
+
+  <script src="node_modules/snapsvg/dist/snap.svg-min.js"></script>
+  <script>
+    const target = document.getElementById("target")
+    const S = new Snap(800,600);
+    S.appendTo(target)
+    S.circle(250,250,100)
+    .attr({"fill":"blue","stroke":"green"});
+    S.rect(550,250,100,100)
+    .attr({"fill":"green","stroke":"blue"});
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- SVG Events with Snap.svg
+
+  </title>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12" id="target">
+      
+      </div>
+    </div>
+  </div>
+
+
+  <script src="node_modules/svg.js/dist/svg.min.js"></script>
+  <script>
+    const height = 600;
+    const width = 800;
+    const draw = SVG('target').size(width,height);
+    const circle = draw.circle(100).attr({
+      "fill":"blue",
+      "cx":250,
+      "cy":250
+    });
+
+    circle.click((e)=>{
+      const newX = Math.random() * width;
+      const newY = Math.random() * height;
+      const r = Math.random() * height/2;
+      const red = Math.random() * 255;
+      const blue = Math.random() * 255;
+      const green = Math.random() * 255;
+      draw.circle(r).attr({
+        "cx": newX,
+        "cy": newY,
+        "fill":`rgba(${red},${blue},${green},${Math.random()})`
+      })
+      circle.front();
+    })
+
+  </script>
+</body>
+
+</html>

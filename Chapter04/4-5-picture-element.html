@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- picture element </title>
+	<script src="picturefill.min.js"></script>
+</head>
+<body>
+    <picture>
+    <!--[if IE 9]><video style="display: none;"><![endif]-->
+	   <source
+		media="(min-width: 1024px)"
+		sizes="50vw"
+		srcset="more-colors-600.jpg 600w,
+				more-colors-1200.jpg 1200w,
+				more-colors-1600.jpg 1600w">
+  		<!--[if IE 9]></video><![endif]-->
+		 	<img src="more-colors-square-400.jpg"
+  	 		alt="Many colors!" 
+				sizes="(min-width: 768px) 60vw, 100vw"
+				srcset="more-colors-square-200.jpg 200w,
+					more-colors-square-400.jpg 400w,
+					more-colors-square-600.jpg 800w,
+					more-colors-square-800.jpg 1200w">
+			</picture>
+	</body>
+</html>

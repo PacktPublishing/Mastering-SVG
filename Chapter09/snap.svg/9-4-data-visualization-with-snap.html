@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- Data Visualization with Snap.SVG</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <style type="text/css">
+    body {
+      font-family: Raleway, sans-serif;
+    }
+
+    svg.canvas {
+     background: #0C2340;
+    }
+    text {
+      font-family: Raleway, sans-serif;
+      font-size: .75em;
+      fill:#fff;
+    }
+    text.large {
+      font-size:1.5em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" width="1000" height="450" version="1.1" id="canvas" class="canvas">
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script src="node_modules/snapsvg/dist/snap.svg-min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- SVG Events with Snap.svg</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12" id="target">
+      
+      </div>
+    </div>
+  </div>
+
+
+  <script src="node_modules/snapsvg/dist/snap.svg-min.js"></script>
+  <script>
+    const target = document.getElementById("target")
+    const height = 600;
+    const width = 800;
+    const S = new Snap(width,height);
+    S.appendTo(target)
+    S.circle(250,250,100).attr({"fill":"blue"}).click(()=>{
+      const newX = Math.random() * width;
+      const newY = Math.random() * height;
+      const r = Math.random() * height/2;
+      const red = Math.random() * 255;
+      const blue = Math.random() * 255;
+      const green = Math.random() * 255;
+      S.circle(newX,newY,r).attr({
+        "fill":`rgba(${red},${blue},${green},${Math.random()})`
+      })
+    })
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- Basic Snap.svg demo</title>
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12" id="target">
+      
+      </div>
+    </div>
+  </div>
+
+
+  <script src="node_modules/svg.js/dist/svg.min.js"></script>
+  <script>
+    const draw = SVG('target').size(800,600)
+    draw.circle(200)
+    .attr({
+      "fill":"blue",
+      "stroke":"green", 
+      "x":250,
+      "y":250
+    });
+    draw.rect(100,100)
+    .attr({
+      "fill":"green",
+      "stroke":"blue", 
+      "x":550,
+      "y":250
+    });
+  </script>
+</body>
+
+</html>

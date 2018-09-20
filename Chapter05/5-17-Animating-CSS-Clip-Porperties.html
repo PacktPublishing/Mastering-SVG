@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mastering SVG- CSS animation</title>
+
+    <style type="text/css">
+    .stars {
+      animation: stars 20s infinite;
+    }
+
+    @keyframes stars {
+      0%, 100% {
+        clip-path: polygon(95px 95px, 120px 5px, 150px 95px, 235px 95px, 165px 150px, 195px 235px, 120px 180px, 50px 235px,75px 150px, 5px 95px)
+      }
+      50% {
+        clip-path: polygon(10px 10px, 120px 10px, 230px 10px, 230px 120px, 230px 180px, 230px 230px, 120px 230px, 10px 230px, 10px 180px, 10px 120px)
+      }
+    }
+     
+    </style>
+   </head>
+   <body>
+     <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 500 500" version="1.1">
+      <image href="take-2-central-2017.jpg" width="1000" height="500" x="0" y="0" class="stars"></image>
+    </svg>
+   </body>
+</html>
