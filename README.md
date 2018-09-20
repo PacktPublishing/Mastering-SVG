@@ -4,7 +4,7 @@
 
 This is the code repository for [Mastering SVG](https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743), published by Packt.
 
-**Ace web animations, visualizations, and vector graphics with HTML, CSS, and JavaScript **
+**Ace web animations, visualizations, and vector graphics with HTML, CSS, and JavaScript**
 
 ## What is this book about?
 SVG is the most powerful image format in use on the web. In addition to producing resolution-independent images for today's multi-device world, SVG allows you to create animations and visualizations to add to your sites and applications. The simplicity of cross-platform markup, mixed with familiar modern web languages, such as CSS and JavaScript, creates a winning combination for designers and developers alike.
@@ -56,13 +56,9 @@ With the following software and hardware list you can run all code files present
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://www.packtpub.com/sites/default/files/downloads/9781788626743_ColorImages.pdf).
 
 ### Related products
-*  [[Packt]](https://www.packtpub.com/web-development/learn-threejs-third-edition?utm_source=github&utm_medium=repository&utm_campaign=) [[Amazon]](https://www.amazon.com/dp/1788833287)
+*  Learn Three.js - Third Edition [[Packt]](https://www.packtpub.com/web-development/learn-threejs-third-edition?utm_source=github&utm_medium=repository&utm_campaign=9781788833288) [[Amazon]](https://www.amazon.com/dp/1788833287)
 
-*  [[Packt]](https://www.packtpub.com/web-development/hands-uxui-design-developers?utm_source=github&utm_medium=repository&utm_campaign=) [[Amazon]](https://www.amazon.com/dp/1788626699)
-
-*  [[Packt]]() [[Amazon]](https://www.amazon.com/dp/)
-
-*  [[Packt]]() [[Amazon]](https://www.amazon.com/dp/)
+*  Hands-On UX Design for Developers [[Packt]](https://www.packtpub.com/web-development/hands-uxui-design-developers?utm_source=github&utm_medium=repository&utm_campaign=9781788626699) [[Amazon]](https://www.amazon.com/dp/1788626699)
 
 ## Get to Know the Author
 **Rob Larsen**
