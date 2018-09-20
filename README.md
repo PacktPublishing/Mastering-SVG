@@ -1,6 +1,6 @@
 # Mastering SVG	
 
-<a href="https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743"><img src="https://www.packtpub.com/sites/default/files/B09076_MockupCover_New.png" alt="Learn Three.js - Third Edition" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743"><img src="https://www.packtpub.com/sites/default/files/B09076_MockupCover_New.png" alt="Mastering SVG" height="256px" align="right"></a>
 
 This is the code repository for [](https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=), published by Packt.
 
