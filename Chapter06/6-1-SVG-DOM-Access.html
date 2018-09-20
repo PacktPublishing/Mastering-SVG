@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mastering SVG- SVG Basic SVG DOM Manipulation</title>
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" version="1.1">
+        <rect x="20" y="20" fill="blue" width="460" height="460" id="rect"></rect>
+    </svg>
+    <script>
+    /*
+        ES6
+    */
+        document.addEventListener("DOMContentLoaded",function() {
+            const doc = document;
+            const rect = doc.getElementById("rect");
+            for (let prop in rect){
+                let val = rect[prop];
+                console.log(`${prop} = ${val}`);
+            }
+        });
+    </script>
+</body>
+
+</html>

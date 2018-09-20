@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Mastering SVG- Font Awesome</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+  <style>
+    .btn svg {
+      height: 2em;
+      width: 2em;
+      fill: #007bff;
+    }
+  </style>
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <defs>
+      <symbol id="play" viewBox="0 0 448 512">
+        <title id="play-title">play</title>
+        <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+      </symbol>
+      <symbol id="fast-backward" viewBox="0 0 512 512">
+        <title id="fast-backward-title">fast-backward</title>
+        <path d="M0 436V76c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v151.9L235.5 71.4C256.1 54.3 288 68.6 288 96v131.9L459.5 71.4C480.1 54.3 512 68.6 512 96v320c0 27.4-31.9 41.7-52.5 24.6L288 285.3V416c0 27.4-31.9 41.7-52.5 24.6L64 285.3V436c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12z"></path>
+      </symbol>
+      <symbol id="fast-forward" viewBox="0 0 512 512">
+        <title id="fast-forward-title">fast-forward</title>
+        <path d="M512 76v360c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12V284.1L276.5 440.6c-20.6 17.2-52.5 2.8-52.5-24.6V284.1L52.5 440.6C31.9 457.8 0 443.4 0 416V96c0-27.4 31.9-41.7 52.5-24.6L224 226.8V96c0-27.4 31.9-41.7 52.5-24.6L448 226.8V76c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12z"></path>
+      </symbol>
+      <symbol id="forward" viewBox="0 0 512 512">
+        <title id="forward-title">forward</title>
+        <path d="M500.5 231.4l-192-160C287.9 54.3 256 68.6 256 96v320c0 27.4 31.9 41.8 52.5 24.6l192-160c15.3-12.8 15.3-36.4 0-49.2zm-256 0l-192-160C31.9 54.3 0 68.6 0 96v320c0 27.4 31.9 41.8 52.5 24.6l192-160c15.3-12.8 15.3-36.4 0-49.2z"></path>
+      </symbol>
+      <symbol id="backward" viewBox="0 0 512 512">
+        <title id="backward-title">backward</title>
+        <path d="M11.5 280.6l192 160c20.6 17.2 52.5 2.8 52.5-24.6V96c0-27.4-31.9-41.8-52.5-24.6l-192 160c-15.3 12.8-15.3 36.4 0 49.2zm256 0l192 160c20.6 17.2 52.5 2.8 52.5-24.6V96c0-27.4-31.9-41.8-52.5-24.6l-192 160c-15.3 12.8-15.3 36.4 0 49.2z"></path>
+      </symbol>
+    </defs>
+  </svg>
+  <div>
+    <button aria-label="rewind" class="btn btn-link">
+      <svg xmlns="http://www.w3.org/2000/svg" role="img">
+        <use xlink:href="#backward"></use>
+      </svg>
+    </button>
+    <button aria-label="skip to previous track" class="btn btn-link">
+      <svg xmlns="http://www.w3.org/2000/svg" role="img">
+        <use xlink:href="#fast-backward"></use>
+      </svg>
+    </button>
+    <button aria-label="play" class="btn btn-link">
+      <svg xmlns="http://www.w3.org/2000/svg" role="img">
+        <use xlink:href="#play"></use>
+      </svg>
+    </button>
+    <button aria-label="skip to next track" class="btn btn-link">
+      <svg xmlns="http://www.w3.org/2000/svg" role="img">
+        <use xlink:href="#fast-forward"></use>
+      </svg>
+    </button>
+    <button aria-label="fast forward" class="btn btn-link">
+      <svg xmlns="http://www.w3.org/2000/svg" role="img">
+        <use xlink:href="#forward"></use>
+      </svg>
+    </button>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mastering SVG- CSS animation</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400" rel="stylesheet">
+
+    <style type="text/css">
+    svg {
+      background: lightgray;
+    }
+    .rect {
+      animation:box 3s infinite, change-colors-and-fade 3s infinite;
+    }
+
+    @keyframes box {
+      0%, 100% {
+        clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%)
+      }
+      50% {
+        clip-path: polygon(4% 4%, 96% 4%, 96% 96%, 4% 96%)
+      }
+    }
+    @keyframes change-colors-and-fade {
+      0%, 100% {
+        opacity: .5;
+        fill: rgb(255,0,0);
+      }
+      50% {
+        opacity:1;
+        fill: rgb(0,0,255);
+      }
+    }
+     
+    </style>
+   </head>
+   <body>
+     <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 250 250" version="1.1">
+      
+      <rect x="0" y="50" width="250" height="50" fill="gray"></rect>
+      <rect x="0" y="0" width="250" height="250" class="rect"></rect>>
+    </svg>
+   </body>
+</html>
