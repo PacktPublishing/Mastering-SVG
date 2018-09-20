@@ -1,6 +1,6 @@
-# 
+# Mastering SVG	
 
-<a href="https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign="><img src="" alt="" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743"><img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/9781788833288.png" alt="Learn Three.js - Third Edition" height="256px" align="right"></a>
 
 This is the code repository for [](https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=), published by Packt.
 
@@ -10,6 +10,7 @@ This is the code repository for [](https://www.packtpub.com/web-development/mast
 0
 
 This book covers the following exciting features:
+
 
 
 If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1788626745) today!
