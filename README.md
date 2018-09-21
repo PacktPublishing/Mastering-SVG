@@ -62,7 +62,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 ## Get to Know the Author
 **Rob Larsen**
-is an experienced frontend engineer, team lead, and manager. He is an active writer and speaker on web technology with a special focus on the continuing evolution of HTML, CSS, and JavaScript. 
+(@roblarsen) is an experienced frontend engineer, team lead, and manager. He is an active writer and speaker on web technology with a special focus on the continuing evolution of HTML, CSS, and JavaScript. 
 He is a co-author of Professional jQuery, the author of Beginning HTML and CSS, and the author of The Uncertain Web. He's also an active member of the open source community as a maintainer of several popular projects.
 
 
