@@ -1,6 +1,6 @@
 # Mastering SVG	
 
-<a href="https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743"><img src="https://www.packtpub.com/sites/default/files/B09076_MockupCover_New.png?utm_source=github&utm_medium=repository&utm_campaign=9781788626743" alt="Mastering SVG" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743"><img src="https://www.packtpub.com/sites/default/files/B09076_cover_NewCO.png?utm_source=9781788626743" alt="Mastering SVG" height="256px" align="right"></a>
 
 This is the code repository for [Mastering SVG](https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743), published by Packt.
 
