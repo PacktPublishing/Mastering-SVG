@@ -53,8 +53,6 @@ With the following software and hardware list you can run all code files present
 | 11 | svgcleaner (latest) | Windows, Mac OS X, and Linux (Any) |
 
 
-We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://www.packtpub.com/sites/default/files/downloads/9781788626743_ColorImages.pdf).
-
 ### Related products
 *  Learn Three.js - Third Edition [[Packt]](https://www.packtpub.com/web-development/learn-threejs-third-edition?utm_source=github&utm_medium=repository&utm_campaign=9781788833288) [[Amazon]](https://www.amazon.com/dp/1788833287)
 
