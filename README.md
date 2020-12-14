@@ -1,3 +1,8 @@
+## $5 Tech Unlocked 2021!
+[Buy and download this Book for only $5 on PacktPub.com](https://www.packtpub.com/product/mastering-svg/9781788626743)
+-----
+*If you have read this book, please leave a review on [Amazon.com](https://www.amazon.com/gp/product/1788626745).     Potential readers can then use your unbiased opinion to help them make purchase decisions. Thank you. The $5 campaign         runs from __December 15th 2020__ to __January 13th 2021.__*
+
 # Mastering SVG	
 
 <a href="https://www.packtpub.com/web-development/mastering-svg?utm_source=github&utm_medium=repository&utm_campaign=9781788626743"><img src="https://www.packtpub.com/sites/default/files/B09076_cover_NewCO.png?utm_source=9781788626743" alt="Mastering SVG" height="256px" align="right"></a>
